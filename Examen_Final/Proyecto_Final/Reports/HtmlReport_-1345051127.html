@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+				<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Oct 24, 2020 03:59:45 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>TestLoginFallido</a></li>
+					<li><a href='#'>TestLoginExito</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Test Login Fail</span>
+						<span class='test-time'>Oct 24, 2020 03:59:50 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 24, 2020 03:59:50 PM</span>
+	<span class='label end-time'>Oct 24, 2020 04:00:20 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 30s+309ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>TestLoginFallido</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>SenaydaVilcas</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>4:00:20 PM</td>
+					<td class='step-details'><html><head><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style type="text/css">.uib-time input{width:50px;}</style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow,[uib-popover-html-popup].popover.top-left > .arrow,[uib-popover-html-popup].popover.top-right > .arrow,[uib-popover-html-popup].popover.bottom-left > .arrow,[uib-popover-html-popup].popover.bottom-right > .arrow,[uib-popover-html-popup].popover.left-top > .arrow,[uib-popover-html-popup].popover.left-bottom > .arrow,[uib-popover-html-popup].popover.right-top > .arrow,[uib-popover-html-popup].popover.right-bottom > .arrow,[uib-popover-template-popup].popover.top-left > .arrow,[uib-popover-template-popup].popover.top-right > .arrow,[uib-popover-template-popup].popover.bottom-left > .arrow,[uib-popover-template-popup].popover.bottom-right > .arrow,[uib-popover-template-popup].popover.left-top > .arrow,[uib-popover-template-popup].popover.left-bottom > .arrow,[uib-popover-template-popup].popover.right-top > .arrow,[uib-popover-template-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-html-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style><style type="text/css">.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-left,.uib-right{width:100%}</style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=11,Chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><!--[if gte IE 8]>
+		<script src="/scripts/html5shiv.min.js"></script>
+		<script src="/scripts/respond.min.js"></script>
+	<![endif]--><link rel="stylesheet" type="text/css" href="/scripts/gaiafrontend/css/bootstrap.css"><link rel="stylesheet" type="text/css" href="/scripts/b_components/skylo/vendor/styles/skylo.css"><link rel="stylesheet" type="text/css" href="/scripts/b_components/sweetalert2/dist/sweetalert2.css"><link rel="stylesheet" type="text/css" href="/styles/login/mainLogin.css"><link rel="shortcut icon" href="favicon.ico"><title>OIM - Login</title><script type="text/javascript" async="" src="http://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/T9w1ROdplctW2nVKvNJYXH8o/recaptcha__es.js" crossorigin="anonymous" integrity="sha384-MgfjyuYPFemW7JNYDwx1bnt99ZJXCsQRzsCsjAkr2XaTBYltrk+PJk7Ck7gsG9Ml"></script><script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-MJQG4R"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-M2XMXT8"></script><script>(function(w,d,s,l,i){
+        w[l] = w[l]||[];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event:'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0];
+        var j = d.createElement(s);
+        var dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M2XMXT8')</script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="startup" src="app/startup.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="system" src="/system.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="package" src="/app/package.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="loginPackage" src="/login/app/package.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app" src="app/app.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="constants" src="/scripts/constants.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angular" src="/scripts/b_components/angular/angular.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app_routes" src="app/app.routes.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="helper" src="/scripts/helper.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="underscore" src="/scripts/b_components/underscore/underscore-min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="directiveUtils" src="/scripts/mpf-main-controls/directives/directive.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="lodash" src="/scripts/b_components/lodash/dist/lodash.compat.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ES6Register" src="/app/es6-register.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="/scripts/b_components/jquery/dist/jquery.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ES6Promise" src="/scripts/b_components/es6-promise/es6-promise.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="swal" src="/scripts/b_components/sweetalert2/dist/sweetalert2.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angular_route" src="/scripts/b_components/angular-route/angular-route.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angular_ocLazyLoad" src="/scripts/b_components/oclazyload/dist/ocLazyLoad.require.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angular_ui_route" src="/scripts/b_components/angular-ui-router/release/angular-ui-router.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="loginTemplates" src="/login/loginTemplates.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angular_animate" src="/scripts/b_components/angular-animate/angular-animate.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mTemplates" src="/scripts/mpf-main-controls/html/templates.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="satellizer" src="/scripts/b_components/satellizer/dist/satellizer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="oimGoogleAnalytics" src="/scripts/google-analytics/google-analytics.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="originSystem" src="/scripts/origin-system.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angular_sanitize" src="/scripts/b_components/angular-sanitize/angular-sanitize.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angularES-PE" src="/scripts/b_components/angular-i18n/angular-locale_es-pe.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="_skylo" src="/scripts/b_components/skylo/vendor/scripts/skylo.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="spin" src="/scripts/plugins/spin.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="crypto-js" src="/scripts/b_components/crypto-js/crypto-js.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="oim_ocLazyLoad" src="/scripts/oim.oclazyload.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uIBootstrap" src="/scripts/b_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script><style type="text/css"></style><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mDirective" src="/scripts/mpf-main-controls/directives/directive.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mapfre_spinner" src="/scripts/plugins/jquery.mapfre.spiner.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="oim_theme_service" src="/scripts/oim.theme.service.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="wrap_gaia" src="/scripts/wrapgaia.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="proxyLogin" src="/app/proxy/serviceLogin.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="proxyHome" src="/mydream/app/proxy/serviceMyDream.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="storageManager" src="/scripts/storage-manager.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="oim_security" src="/app/security/oim.security.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/login/app/login/controller/mainLogin.js" src="/login/app/login/controller/mainLogin.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/login/app/login/component/authentication/component.js" src="/login/app/login/component/authentication/component.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/login/app/login/component/buttonsAuth/buttonsAuth.js" src="/login/app/login/component/buttonsAuth/buttonsAuth.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/login/app/login/service/loginFactory.js" src="/login/app/login/service/loginFactory.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/login/app/login/component/authentication/serviceLogin.js" src="/login/app/login/component/authentication/serviceLogin.js"></script></head><body style="display: block;" class="page-login"><div class="main" ng-init="atHome = true"><div class="wrapper"><section><div class="container pt-md-5"><div class="row"><div class="col-sm-10 col-sm-offset-1 cnt-login"><div class="clearfix"><div class="col-md-5 no-padding-xs box-image no-tablet"><img src="../../images/login-img2.jpg" alt="" class="img-responsive"></div><div class="col-md-7 pt-xs-2 pb-xs-2"><div class="row"><div class="col-md-10 col-md-offset-1 login-welcome text-center"><h2 ng-show="welcomeUserTypes" class="ng-hide">¡Bienvenido!</h2><img src="../../images/login-logo2.png" alt="" class="mt-xs-1 mb-xs-1"><p ng-show="welcomeUserTypes" class="ng-hide">Elige el tipo de cuenta con la que deseas ingresar.</p><span class="g-shortline ng-hide" ng-show="welcomeUserTypes"></span></div><div class="clearfix"></div><!-- uiView: --><ui-view class="ng-scope"><mx-login credentials="credentials" type="type" is-resolve-login="isResolveLogin" class="ng-scope ng-isolate-scope"><div class="col-md-10 col-md-offset-1 mt-xs-2 mb-xs-2 login-welcome text-center"><h2 class="title red text-center title-template ng-hide" ng-show="$ctrl.isRecurrente"><span class="label-welcome">¡Hola <span class="ng-binding"></span>!</span></h2><p ng-show="!$ctrl.isRecurrente">Ingresa con tu usuario y contraseña.</p></div><form ng-submit="$ctrl._logIn()" name="frmLogin" class="ng-valid-maxlength ng-valid-only-letter-number-guion ng-valid-pattern ng-valid-minlength ng-dirty ng-valid-parse ng-valid ng-valid-required"><div class="col-md-10 col-md-offset-1 mb-xs-2" ng-show="!$ctrl.isRecurrente"><div class="g-input-design ng-isolate-scope ng-valid-maxlength ng-valid-only-letter-number-guion ng-not-empty ng-valid ng-valid-required ng-valid-parse" ng-class="{'isHorizontal': isHorz}" label="{label: 'Ingrese su usuario', required: true}" name="nIngresaUsuario" ng-model="$ctrl.credentials.username" ng-required="true" ng-maxlength="50" mpf-validation="onlyLetterNumberGuion" oim-enter="$ctrl.__login()" required="required"><label class="g-placeholder ng-binding animated" ng-show="labelData.label" ng-class="{animated: focused || !isEmpty()}">Ingrese su usuario<span ng-show="labelData.required &amp;&amp; labelData.label" class="ng-binding">*</span></label><input ng-model="model" ng-class="{'labelIsEmpty': !labelData.label}" ng-blur="ngBlur()" ng-focus="ngFocus()" ng-disabled="getDisabled()" class="ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-not-empty ng-dirty ng-valid-parse ng-touched" maxlength="50" ng-readonly="" ng-change="_ngChange()" bs-limit="" placeholder=""></div><div class="g-error ng-hide" ng-show="frmLogin.nIngresaUsuario.$error.required &amp;&amp; !frmLogin.nIngresaUsuario.$pristine">* Este campo es obligatorio</div></div><div class="col-md-10 col-md-offset-1 mb-xs-3"><div class="g-input-design ng-isolate-scope ng-valid-maxlength ng-not-empty ng-valid ng-valid-required" label="{label: 'Ingresa tu contraseña', required: true}" name="nIngresaPassword" ng-model="$ctrl.credentials.password" ng-required="true" ng-maxlength="50" oim-enter="$ctrl.__login()" required="required"><label class="g-placeholder ng-binding animated" ng-class="{animated: focused || model}">Ingresa tu contraseña<span ng-show="labelData.required">*</span></label><input type="password" ng-model="model" ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false" ng-disabled="" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"></div><div class="g-error ng-hide" ng-show="frmLogin.nIngresaPassword.$error.required &amp;&amp; !frmLogin.nIngresaPassword.$pristine">* Este campo es obligatorio</div></div><m-alert options-alert="optionsAlert" class="ng-isolate-scope"><div class="text-center"><i class=""><span class="ng-binding"></span></i></div></m-alert><div class="col-md-10 col-md-offset-1 mb-xs-2"><a href="" class="g-btn g-btn-green-border block" ng-click="$ctrl.__login()" ng-class="{disabled: !canSubmitValidationForm()}">Ingresar</a></div></form><div class="box-login-options"><div class="col-md-10 col-md-offset-1 text-center mb-xs-2"><a href="#/recoverPassword" class="link-recover-password" ui-sref="recoverPassword">¿Olvidaste tu contraseña?</a></div></div></mx-login></ui-view><div ng-controller="btnHomeController" class="col-md-10 col-md-offset-1 pt-xs-2 ng-scope"><a ng-show="showCommonControl" class="g-btn g-btn-white block ng-hide" ng-click="fnGoLogin()">Regresar al login</a></div></div></div></div></div><div class="clearfix"></div><div class="col-md-10 col-md-offset-1col-sm-10 col-sm-offset-1 text-center ftt-login mb-md-3 mb-sm-3"><span class="g-shortline"></span><p class="text-help">Ayuda OIM <span>0800 2 9408</span></p><p>Lunes a Viernes de <span>9:00am a 5:30pm</span></p><p class="copyrigt">© Copyright MAPFRE PERÚ. Todos los Derechos Reservados.</p></div></div></div></section></div></div><script src="/scripts/b_components/requirejs/require.js" data-main="app/startup.js"></script><script src="//www.google.com/recaptcha/api.js?render=explicit&amp;onload=vcRecaptchaApiLoaded&amp;hl=es" async="" defer="defer"></script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MJQG4R" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript><script>(function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MJQG4R');</script><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2XMXT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="spinner_modal" class="g-new-spinner" style="background-color: rgba(0, 0, 0, 0.3); width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:1999999999; text-align: center; vertical-align: middle;"><div class="spinner" role="progressbar" style="position: absolute; width: 0px; z-index: 2000000000; left: 50%; top: 50%;"><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-0-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(0deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-1-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(27deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-2-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(55deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-3-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(83deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-4-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(110deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-5-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(138deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-6-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(166deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-7-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(193deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-8-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(221deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-9-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(249deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-10-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(276deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-11-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(304deg) translate(30px, 0px); border-radius: 5px;"></div></div><div style="position: absolute; top: -5px; opacity: 0.25; animation: 1s linear 0s infinite normal none running opacity-56-25-12-13;"><div style="position: absolute; width: 30px; height: 10px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(332deg) translate(30px, 0px); border-radius: 5px;"></div></div></div><span style="color: rgb(0, 0, 0); font-size: 20px; position: fixed; text-shadow: rgb(214, 214, 214) 0px 0px 1px; top: 348px; left: 50%; min-width: 290px; transform: translateX(-50%);" class="spinner-text">Estamos verificando sus credenciales...<!--<span--></span></div></body></html></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>Test Login Sucess</span>
+						<span class='test-time'>Oct 24, 2020 04:00:35 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 24, 2020 04:00:35 PM</span>
+	<span class='label end-time'>Oct 24, 2020 04:01:02 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 26s+868ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>TestLoginExito</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>MarcialPerez</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:01:02 PM</td>
+					<td class='step-details'>OIM - Login</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>TestLoginFallido</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Oct 24, 2020 03:59:50 PM</td>
+										<td class='linked' test-id='1'>Test Login Fail</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>TestLoginExito</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Oct 24, 2020 04:00:35 PM</td>
+										<td class='linked' test-id='2'>Test Login Sucess</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='author-view' class='view hide'>
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Authors' title='Search Authors'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Authors...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Authors</h5>
+                <ul id='author-collection' class='author-collection'>
+
+                        <li class='author displayed active'>
+                            <div class='author-heading'>
+                                <span class='author-name'>SenaydaVilcas</span>
+                                <span class='author-status right'>
+                                        <span class='label fail'>1</span>
+						        </span>
+                            </div>
+                            <div class='author-content hide'>
+                                <div class='author-status-counts'>
+                                    
+                                    <span class='label red lighten-1 white-text'>Failed: 1</span>
+                                    
+                                </div>
+
+                                <div class='author-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Oct 24, 2020 03:59:50 PM</td>
+                                                <td class='linked' test-id='1'>Test Login Fail</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='author displayed active'>
+                            <div class='author-heading'>
+                                <span class='author-name'>MarcialPerez</span>
+                                <span class='author-status right'>
+                                        <span class='label pass'>1</span>
+						        </span>
+                            </div>
+                            <div class='author-content hide'>
+                                <div class='author-status-counts'>
+                                    <span class='label green accent-4 white-text'>Passed: 1</span>
+                                    
+                                    
+                                </div>
+
+                                <div class='author-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Oct 24, 2020 04:00:35 PM</td>
+                                                <td class='linked' test-id='2'>Test Login Sucess</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='author-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>2</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>2</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Oct 24, 2020 03:59:45 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Oct 24, 2020 04:01:02 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 1m 17s+107ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>TestLoginFallido</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>TestLoginExito</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 1,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 1,
+				failChild: 1,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 1,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
