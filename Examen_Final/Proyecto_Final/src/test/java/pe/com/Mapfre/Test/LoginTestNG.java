@@ -12,8 +12,8 @@ public class LoginTestNG extends BaseUrlTest {
 	  LoginPageObject loginpage = new LoginPageObject(getDriver());
 		
 	  Thread.sleep(3000);
-	  loginpage.UserLogin("webmaster");
-	  loginpage.PasswordLogin("Mapfre123.");
+	  loginpage.UserLogin("");
+	  loginpage.PasswordLogin("");
 	  loginpage.ClickLogin();
 	  
   }
