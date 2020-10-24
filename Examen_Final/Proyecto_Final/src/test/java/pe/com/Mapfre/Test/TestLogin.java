@@ -27,8 +27,8 @@ public static void LoginTestSucess() throws InterruptedException {
 	LoginPageObject loginpage = new LoginPageObject(driver);
 		
 	Thread.sleep(3000);
-	loginpage.UserLogin("webmaster");
-	loginpage.PasswordLogin("Mapfre123.");
+	loginpage.UserLogin("");
+	loginpage.PasswordLogin("");
 	
 	//click on search button
 	Thread.sleep(3000);
