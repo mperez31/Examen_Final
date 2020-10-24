@@ -34,8 +34,8 @@ public class LoginTestNGReports extends BaseUrlTest {
 	  LoginPageObject loginpage = new LoginPageObject(getDriver());
 		
 	  Thread.sleep(3000);
-	  loginpage.UserLogin("webmaster");
-	  loginpage.PasswordLogin("Mapfre123.");
+	  loginpage.UserLogin("");
+	  loginpage.PasswordLogin("");
 	  loginpage.ClickLogin();
 	  logger.log(Status.PASS, getDriver().getTitle());
 	  logger.assignCategory("Test Login Exito");
@@ -53,10 +53,10 @@ public class LoginTestNGReports extends BaseUrlTest {
 	  LoginPageObject loginpage = new LoginPageObject(getDriver());
 		
 	  Thread.sleep(3000);
-	  loginpage.UserLogin("webmaster");
-	  loginpage.PasswordLogin("Mapfre125.");
+	  loginpage.UserLogin("");
+	  loginpage.PasswordLogin("");
 	  loginpage.ClickLogin();
-	  logger.log(Status.FAIL, (Markup) getDriver().findElement(By.linkText("Usuario o contraseña no valido")));
+	  logger.log(Status.FAIL, (Markup) getDriver().findElement(By.linkText("Usuario o contraseÃ±a no valido")));
 	  logger.assignCategory("Test Login Fallido");
 	  logger.assignAuthor("Senayda Vilcas");
 	  extend.flush();
